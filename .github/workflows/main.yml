@@ -2,9 +2,14 @@ name: Stable Build
 on:
   push:
     branches:
-    - main
+      - main
     tags:
       - "*.*.*"
+jobs:
+  workflow-main:
+    name: Keel run on main branch
+    runs-on: ubuntu-latest
+    steps:
       - name: Set tag in env
         run: echo "TAG=${GITHUB_REF#refs/*/}" >> $GITHUB_ENV
-          tags: runq/go-kube:${{ env.TAG }}, runq/go-kube:latest
+          # tags: amzarmuzani95/keel-test:${{ env.TAG }}, amzarmuzani95/keel-test:latest
