@@ -1,0 +1,7 @@
+name: Development Build
+on:
+  push:
+    branches: [ dev ]
+      - name: Set short commit hash in env
+        run: echo "COMMIT_SHA=$(echo $GITHUB_SHA | cut -c1-7)" >> $GITHUB_ENV
+          tags: runq/go-kube:dev-${{ env.COMMIT_SHA }}
