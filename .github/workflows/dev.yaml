@@ -9,5 +9,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Set short commit hash in env
+        env:
+          tags: amzarmuzani95/keel-test:dev-${{ env.COMMIT_SHA }}
         run: echo "COMMIT_SHA=$(echo $GITHUB_SHA | cut -c1-7)" >> $GITHUB_ENV
-          # tags: amzarmuzani95/keel-test:dev-${{ env.COMMIT_SHA }}
+        
