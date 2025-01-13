@@ -1,7 +1,13 @@
 name: Development Build
 on:
   push:
-    branches: [ dev ]
+    branches: 
+      - dev
+jobs:
+  workflow-dev:
+    name: Keel run on dev branch
+    runs-on: ubuntu-latest
+    steps:
       - name: Set short commit hash in env
         run: echo "COMMIT_SHA=$(echo $GITHUB_SHA | cut -c1-7)" >> $GITHUB_ENV
-          tags: runq/go-kube:dev-${{ env.COMMIT_SHA }}
+          # tags: amzarmuzani95/keel-test:dev-${{ env.COMMIT_SHA }}
