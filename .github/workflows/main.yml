@@ -11,5 +11,6 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Set tag in env
+        env:
+          tags: amzarmuzani95/keel-test:${{ env.TAG }}, amzarmuzani95/keel-test:latest
         run: echo "TAG=${GITHUB_REF#refs/*/}" >> $GITHUB_ENV
-          # tags: amzarmuzani95/keel-test:${{ env.TAG }}, amzarmuzani95/keel-test:latest
