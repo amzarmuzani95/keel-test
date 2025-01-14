@@ -1,7 +1,9 @@
 name: Docker Image CI for ghcr.io
 
 on:
-  push
+  pull_request:
+    types:
+      - labeled
 
 jobs:
   build_and_publish:
